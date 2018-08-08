@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   get '/' => "welcome#index", as: "root"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get "/auth/:provider/callback" => "sessions#create"
+  get "auth/failure" => "/"
+  get "signout" => "sessions#destroy", as: "signout"
 end
