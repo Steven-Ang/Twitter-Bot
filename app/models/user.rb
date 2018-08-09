@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_secure_password
 
   def self.from_omniauth(auth)
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
@@ -13,6 +14,7 @@ class User < ApplicationRecord
       user.description = auth["info"]["description"]
       user.location = auth["info"]["location"]
       user.image = auth["info"]["image"]
+      user.password = SecureRandom.hex(10)
     end
   end
 

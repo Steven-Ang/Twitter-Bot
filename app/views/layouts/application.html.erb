@@ -28,17 +28,20 @@
           <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
             <li class="nav-item pr-3">
-              <img src="<%= current_user.image %>" alt="" style="border-radius: 100%; width: 30px; height: 30px;"> <%= current_user.name %> | <%= current_user.nickname %>
+              <img src="<%= current_user.image %>" alt="" class="nav-image"> <a href="/users/<%= current_user.id %>""><%= current_user.name %> | <%= current_user.nickname %></a>
             </li>
             <li class="nav-item">
-              <%= link_to "Sign out", signout_path %>
+              <button class="btn btn-light">Schedule Tweet</button>
+            </li>
+            <li class="nav-item">
+              <%= button_to "Sign out", signout_path, method: :get, :role => "button", :class => "btn btn-light" %>
             </li>
           <% else %>
             <li class="nav-item">
-              <a class="nav-link" href="#">Sign Up</a>
+              <a class="nav-link" href="/sign_up">Sign Up</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Sign In</a>
+              <a class="nav-link" href="/sign_in">Sign In</a>
             </li>
             <li class="nav-item">
               <%= link_to "Sign In With Twitter", "/auth/twitter", :class => "nav-link" %>

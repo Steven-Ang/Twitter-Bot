@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   get '/' => "welcome#index", as: "root"
-  get "/auth/:provider/callback" => "sessions#create"
+  get "/auth/:provider/callback" => "sessions#create_twitter"
   get "auth/failure" => "/"
-  get "signout" => "sessions#destroy", as: "signout"
+  get '/sign_up' => 'users#new'
+  get "sign_out" => "sessions#destroy", as: "signout"
+  get 'users/:id' => "users#show", as: "show_user"
+
+  get '/sign_in' => 'sessions#new'
+  post '/sign_in' => 'sessions#create'
+  post '/users' => 'users#create'
+
 end

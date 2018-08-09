@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+ *,
+ *:before,
+ *:after {
+   box-sizing: border-box;
+ }
+
+ a {
+   text-decoration: none !important;
+ }
+
+ .nav-image {
+   width: 40px;
+   border: 4px solid #eee;
+   border-radius: 100%;
+ }
+
+ .nav-item a {
+  color: #000 !important;
+ }
