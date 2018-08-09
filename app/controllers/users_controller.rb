@@ -1,3 +1,5 @@
+require 'twitter_api'
+
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
