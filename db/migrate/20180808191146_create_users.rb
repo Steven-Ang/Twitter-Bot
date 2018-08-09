@@ -4,6 +4,10 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :provider
       t.string :uid
       t.string :name
+      t.string :nickname
+      t.string :description
+      t.string :location
+      t.string :image
 
       t.timestamps
     end
