@@ -12,13 +12,15 @@
 
       <h1 class="text-center p-4">My Tweets</h1>
 
-      <% @twitter_api.our_public_tweets.each do |tweet| %>
+      <% cache("our_public_tweets", expires_in: 6.hours) do %>
+        <% @twitter_api.our_public_tweets.each do |tweet| %>
 
-        <div style="border: 1px solid teal; background: #eee; opacity: .9;" class="p-4 mt-2">
-          <h3><%= @user.name + " | " + @user.nickname %></h3>
-          <h5><%= parsed_tweet(tweet) %></h5>
-        </div>
-        
+          <div style="border: 1px solid teal; background: #eee; opacity: .9;" class="p-4 mt-2">
+            <h3><%= @user.name + " | " + @user.nickname %></h3>
+            <h5><%= parsed_tweet(tweet) %></h5>
+          </div>
+          
+        <% end %>
       <% end %>
 
     </div>
