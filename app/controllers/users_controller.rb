@@ -2,6 +2,7 @@ require 'twitter_api'
 
 class UsersController < ApplicationController
   def show
+    @twitter_api = TwitterApi.new(User.find(params[:id]).nickname)
     @user = User.find(params[:id])
   end
 

@@ -6,25 +6,21 @@
       <a href="https://twitter.com/<%= @user.nickname %>" target="_blank"><h5>@<%= @user.nickname %></h5></a>
       <h5>Location: <%= @user.location %></h5>
       <small><strong><%= @user.description %></strong></small>
-      <%= TwitterApi.client.status(27558893223).text %>
     </div>
 
     <div class="col-md-9" style="">
+
       <h1 class="text-center p-4">My Tweets</h1>
 
-      <% TwitterApi.our_public_tweets.each do |tweet| %>
-        <li><%= tweet.text %></li>
+      <% @twitter_api.our_public_tweets.each do |tweet| %>
+
+        <div style="border: 1px solid teal" class="p-4 mt-2">
+          <h3><%= @user.name + " | " + @user.nickname %></h3>
+          <h5><%= tweet.text %></h5>
+        </div>
+        
       <% end %>
 
-      <div style="border: 1px solid teal" class="p-4 mt-2">
-        <p>Demo Tweet</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos voluptates delectus corporis iste porro soluta dignissimos perferendis natus repellendus, libero error ratione, rerum modi unde corrupti in deleniti mollitia nobis facilis eius iusto harum inventore. Quibusdam neque sint facilis minus aperiam reiciendis necessitatibus atque architecto explicabo, maxime accusantium, suscipit autem.</p>
-      </div>
-
-      <div style="border: 1px solid teal" class="p-4 mt-2">
-        <p>Demo Tweet</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos voluptates delectus corporis iste porro soluta dignissimos perferendis natus repellendus, libero error ratione, rerum modi unde corrupti in deleniti mollitia nobis facilis eius iusto harum inventore. Quibusdam neque sint facilis minus aperiam reiciendis necessitatibus atque architecto explicabo, maxime accusantium, suscipit autem.</p>
-      </div>
     </div>
 
   </div>
