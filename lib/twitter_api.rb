@@ -1,4 +1,7 @@
 class TwitterApi
+  def self.our_public_tweets
+    client.user_timeline('BBCNews', count: 5, exclude_replies: true, include_rts: false)
+  end
 
   def self.client
     @client ||= Twitter::REST::Client.new do |config|
