@@ -1,0 +1,16 @@
+<div class="container">
+
+  <%= form_for @tweet do |f| %>
+    <h1 class="text-center">Your Tweet</h1>
+
+    <div>
+      <%= f.text_area :content, :class => "tweet-text-area", :placeholder => "Enter Your Tweet Here" %>
+    </div>
+    
+    <div>
+      <%= f.submit :class => "sign-up-submit btn btn-outline-dark btn-block mt-3" %>
+    </div>
+
+  <% end %>
+
+</div>

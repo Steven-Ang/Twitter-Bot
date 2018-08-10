@@ -7,6 +7,11 @@ class TwitterApi
     client.user_timeline(user, count: 15, exclude_replies: true, include_rts: true)
   end
 
+  def tweet(content)
+    client.update(content)
+    # A Test Message Sent From a Twitter Bot
+  end
+
   private
 
   attr_reader :user
