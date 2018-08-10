@@ -4,7 +4,7 @@ class TwitterApi
   end
 
   def our_public_tweets
-    client.user_timeline(user, count: 15, exclude_replies: true, include_rts: false)
+    client.user_timeline(user, count: 15, exclude_replies: true, include_rts: true)
   end
 
   private

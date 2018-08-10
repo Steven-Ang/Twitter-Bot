@@ -33,3 +33,15 @@
  .nav-item a {
   color: #000 !important;
  }
+
+ .tweet-text-area {
+   width: 100%;
+   height: 200px;
+ }
+
+ .welcome-container {
+   width: 100%;
+   height: 100vh;
+   background: url(https://images.pexels.com/photos/262543/pexels-photo-262543.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat center;
+   background-size: cover;
+ }
