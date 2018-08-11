@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :tweets
+  has_many :tweets, dependent: :destroy
 
   def self.from_omniauth(auth)
     where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)

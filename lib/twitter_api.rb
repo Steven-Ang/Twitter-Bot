@@ -3,7 +3,7 @@ class TwitterApi
     @user = user
   end
 
-  def our_public_tweets
+  def timeline
     client.user_timeline(user, count: 15, exclude_replies: true, include_rts: true)
   end
 
