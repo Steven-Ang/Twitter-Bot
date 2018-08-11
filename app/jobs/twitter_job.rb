@@ -5,6 +5,6 @@ class TwitterJob < ApplicationJob
 
   def perform(user, content)
     # Do something later
-    TwitterApi.new(User.find(user.id).nickname).tweet(content)
+    TwitterApi.new(User.find(user).nickname).tweet(content)
   end
 end
