@@ -2,10 +2,11 @@ require 'twitter_api'
 
 class UsersController < ApplicationController
   def show
+    @tweet = Tweet.new
     @user = User.find(params[:id])
     @twitter_api = TwitterApi.new(User.find(@user.id).nickname)
 
-    # TwitterJob.set(wait: 1.minutes).perform_later(@user, "A Test Message Sent From a Twitter Bot")
+    #TwitterJob.set(wait: 1.minutes).perform_later(@user, "A Test Message Sent From a Twitter Bot")
   end
 
   def new

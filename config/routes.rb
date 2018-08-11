@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get '/' => "welcome#index", as: "root"
   get "/auth/:provider/callback" => "sessions#create_twitter"
   get "auth/failure" => "/"
@@ -9,5 +10,10 @@ Rails.application.routes.draw do
   get '/sign_in' => 'sessions#new'
   post '/sign_in' => 'sessions#create'
   post '/users' => 'users#create'
+
+  resources :tweets
+
+  post "/" => "tweets#create"
+  post "/users/:id" => "tweets#create"
 
 end
