@@ -18,6 +18,17 @@
           <div style="border: 1px solid teal; background: #eee; opacity: .9;" class="p-4 mt-2">
             <h3><%= @user.name + " | " + @user.nickname %></h3>
             <h5><%= tweet.content %></h5>
+            <% case tweet.tweet_type when "pending" %>
+              <button class="btn">Pending...</button>
+            <% when "scheduled" %>
+              <button class="btn-warning">Scheduled</button>
+            <% when "sent" %>
+              <button class="btn btn-success">Sent!</button>
+            <% when "failed" %>
+              <button class="btn btn-danger">Failed.</button>
+            <% when "archived" %>
+              <button class="btn">Archived</button>
+            <% end %>
           </div>
         <% end %>
       <% end %>
