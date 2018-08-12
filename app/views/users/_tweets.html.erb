@@ -1,0 +1,32 @@
+<% if @user_tweets.count != 0 %>
+
+        <h1 class="text-center">Your Scheduled Tweets</h1>
+
+        <% @user_tweets.each do |tweet| %>
+          <div style="border: 1px solid teal; background: #eee; opacity: .9;" class="p-4 mt-2">
+            <h3><%= @user.name + " | " + @user.nickname %></h3>
+            <h5><%= tweet.content %></h5>
+            
+            <div class="row">
+              <div class="col-md-10">
+                <% case tweet.tweet_type when "pending" %>
+                  <button class="btn">Pending...</button>
+                <% when "scheduled" %>
+                  <button class="btn-warning">Scheduled</button>
+                <% when "sent" %>
+                  <button class="btn btn-success">Sent!</button>
+                <% when "failed" %>
+                  <button class="btn btn-danger">Failed.</button>
+                <% when "archived" %>
+                  <button class="btn">Archived</button>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      <% else %>
+
+        <h1 class="text-center">You Have No Scheduled Tweets.</h1>
+
+      <% end %>

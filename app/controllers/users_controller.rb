@@ -7,7 +7,11 @@ class UsersController < ApplicationController
     @user_tweets = @user.tweets.all
     @twitter_api = TwitterApi.new(User.find(@user.id).nickname)
 
-    #TwitterJob.set(wait: 1.minutes).perform_later(@user, "A Test Message Sent From a Twitter Bot")
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def scheduled

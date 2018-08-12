@@ -6,41 +6,16 @@
       <a href="https://twitter.com/<%= @user.nickname %>" target="_blank"><h5>@<%= @user.nickname %></h5></a>
       <h5>Location: <%= @user.location %></h5>
       <small><strong><%= @user.description %></strong></small>
+      <div>
+        <small><%= link_to "All Tweets", show_user_path, remote: true %> | <%= link_to "Scheduled Tweets", scheduled_user_tweets_path, remote: true %> | <%= link_to "Sent Tweets", sent_user_tweets_path, remote: true %></small>
+      </div>
     </div>
 
     <div class="col-md-9 p-3" style="">
 
-      <div>
-        <p class="text-center"><%= link_to "All Tweets", show_user_path %> | <%= link_to "Scheduled Tweets", scheduled_user_tweets_path %> | <%= link_to "Sent Tweets", sent_user_tweets_path %></p>
+      <div id="tweets">
+        <%= render "tweets" %>
       </div>
-
-      <% if @user_tweets.count != 0 %>
-
-        <h1 class="text-center">Your Scheduled Tweets</h1>
-
-        <% @user_tweets.each do |tweet| %>
-          <div style="border: 1px solid teal; background: #eee; opacity: .9;" class="p-4 mt-2">
-            <h3><%= @user.name + " | " + @user.nickname %></h3>
-            <h5><%= tweet.content %></h5>
-            <% case tweet.tweet_type when "pending" %>
-              <button class="btn">Pending...</button>
-            <% when "scheduled" %>
-              <button class="btn-warning">Scheduled</button>
-            <% when "sent" %>
-              <button class="btn btn-success">Sent!</button>
-            <% when "failed" %>
-              <button class="btn btn-danger">Failed.</button>
-            <% when "archived" %>
-              <button class="btn">Archived</button>
-            <% end %>
-          </div>
-        <% end %>
-
-      <% else %>
-
-        <h1 class="text-center">You Have No Scheduled Tweets.</h1>
-
-      <% end %>
 
       <h1 class="text-center p-4">My Tweets</h1>
 
