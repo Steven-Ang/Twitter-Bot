@@ -10,11 +10,15 @@
 
     <div class="col-md-9 p-3" style="">
 
-      <% if @user.tweets.count != 0 %>
+      <div>
+        <p class="text-center"><%= link_to "All Tweets", show_user_path %> | <%= link_to "Scheduled Tweets", scheduled_user_tweets_path %> | <%= link_to "Sent Tweets", sent_user_tweets_path %></p>
+      </div>
+
+      <% if @user_tweets.count != 0 %>
 
         <h1 class="text-center">Your Scheduled Tweets</h1>
 
-        <% @user.tweets.each do |tweet| %>
+        <% @user_tweets.each do |tweet| %>
           <div style="border: 1px solid teal; background: #eee; opacity: .9;" class="p-4 mt-2">
             <h3><%= @user.name + " | " + @user.nickname %></h3>
             <h5><%= tweet.content %></h5>
@@ -31,6 +35,11 @@
             <% end %>
           </div>
         <% end %>
+
+      <% else %>
+
+        <h1 class="text-center">You Have No Scheduled Tweets.</h1>
+
       <% end %>
 
       <h1 class="text-center p-4">My Tweets</h1>

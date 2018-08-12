@@ -4,9 +4,26 @@ class UsersController < ApplicationController
   def show
     @tweet = Tweet.new
     @user = User.find(params[:id])
+    @user_tweets = @user.tweets.all
     @twitter_api = TwitterApi.new(User.find(@user.id).nickname)
 
     #TwitterJob.set(wait: 1.minutes).perform_later(@user, "A Test Message Sent From a Twitter Bot")
+  end
+
+  def scheduled
+    @tweet = Tweet.new
+    @user = User.find(params[:id])
+    @user_tweets = @user.tweets.scheduled
+    @twitter_api = TwitterApi.new(User.find(@user.id).nickname)
+    render action: :show
+  end
+
+  def sent
+    @tweet = Tweet.new
+    @user = User.find(params[:id])
+    @user_tweets = @user.tweets.sent
+    @twitter_api = TwitterApi.new(User.find(@user.id).nickname)
+    render action: :show
   end
 
   def new
