@@ -18,4 +18,5 @@ feature "Create Tweet", type: :feature do
     click_button "Schedule"
     expect(page).to have_content "My Tweets"
   end
+  
 end
