@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth-twitter'
 gem "twitter"
 gem "figaro"
+gem "rspec-rails"
+gem 'rspec-given'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

@@ -1,5 +1,10 @@
 class User < ApplicationRecord
   has_secure_password
+
+  validates :name, presence: true
+  validates :nickname, uniqueness: true, presence: true
+  validates :email, uniqueness: true, format: { with: /\S+@\S+\.\S+/, message: "The Email Is Invalid." }
+
   has_many :tweets, dependent: :destroy
 
   def self.from_omniauth(auth)
