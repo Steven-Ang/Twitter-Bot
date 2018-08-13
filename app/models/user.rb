@@ -3,7 +3,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :nickname, uniqueness: true, presence: true
-  validates :email, uniqueness: true, format: { with: /\S+@\S+\.\S+/, message: "The Email Is Invalid." }
 
   has_many :tweets, dependent: :destroy
 
