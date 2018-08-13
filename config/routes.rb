@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
 
   get '/sign_in' => 'sessions#new'
-  post '/sign_in' => 'sessions#create'
+  post '/login' => 'sessions#create'
 
   resources :tweets
 
