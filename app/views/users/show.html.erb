@@ -6,6 +6,7 @@
       <a href="https://twitter.com/<%= @user.nickname %>" target="_blank"><h5>@<%= @user.nickname %></h5></a>
       <h5>Location: <%= @user.location %></h5>
       <small><strong><%= @user.description %></strong></small>
+      <hr>
       <div>
         <small><%= link_to "All Tweets", show_user_path, remote: true %> | <%= link_to "Scheduled Tweets", scheduled_user_tweets_path, remote: true %> | <%= link_to "Sent Tweets", sent_user_tweets_path, remote: true %></small>
       </div>
