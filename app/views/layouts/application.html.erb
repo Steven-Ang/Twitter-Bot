@@ -28,7 +28,7 @@
           <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
             <li class="nav-item pr-3">
-              <img src="<%= current_user.image %>" alt="" class="nav-image"> <a href="/users/<%= current_user.id %>""><%= current_user.name %> | <%= current_user.nickname %></a>
+              <img src="<%= current_user.image %>" alt="" class="nav-image"> <a href="/users/<%= current_user.id %>"><%= current_user.name %> | <%= current_user.nickname %></a>
             </li>
             <li class="nav-item">
               <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
